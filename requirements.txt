@@ -10,5 +10,5 @@ uvicorn==0.34.0
 pydantic==2.11.3
 sentence-transformers==4.1.0
 python-multipart==0.0.20
-pinecone-client==6.0.0
+pinecone
 pdfplumber==0.11.5

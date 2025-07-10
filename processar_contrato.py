@@ -21,7 +21,7 @@ PINECONE_INDEX_NAME = os.getenv("PINECONE_INDEX_NAME", "brito-ai")
 
 # Configurações da OpenAI
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-EMBEDDING_MODEL = "text-embedding-3-small"
+EMBEDDING_MODEL = "text-embedding-3-large"
 
 # Verifica se as chaves estão configuradas
 if not PINECONE_API_KEY:
@@ -42,7 +42,8 @@ def gerar_embedding(texto):
         client = OpenAI(api_key=OPENAI_API_KEY)
         response = client.embeddings.create(
             input=texto,
-            model=EMBEDDING_MODEL
+            model=EMBEDDING_MODEL,
+            dimensions=1024
         )
         return response.data[0].embedding
     except Exception as e:
